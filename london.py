@@ -10,14 +10,24 @@ app = App(token=os.environ["SLACK_BOT_TOKEN"])
 async def main() -> str:
     async with python_weather.Client(unit=python_weather.METRIC) as client: 
         weather = await client.get('London')
-        weatheris = ("It is " + str(weather.temperature) + "°C in "  + str(weather.location))  
+        weatheris = ("It is " + str(weather.temperature) + "°C in London!")  
         return weatheris
 
 @app.command("/weather")
 def weather_command(ack, respond):
     print("Weather command invoked")
     ack()
-
+    respond(
+        blocks=[
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "Got it, working away :beachball:"
+                }
+            },
+        ]
+    )
     respond(
         blocks=[
             {
