@@ -30,7 +30,7 @@ def get_date() -> str:
     else:
         prefix = 'th'
 
-    full_date = now.strftime(f"Today is *%A the %d{prefix} of %B, %Y*.")
+    full_date = now.strftime(f"Today is *%A %d{prefix} %B, %Y*.")
 
     return full_date
 
