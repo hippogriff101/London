@@ -51,7 +51,7 @@ def daily_msg() -> None:
     tempis = asyncio.run(main())
     full_date = get_date()
     app.client.chat_postMessage(
-        channel="C0A7YPHA1MJ",
+        channel=(os.environ["SLACK_CHANNEL"]),
         text=("_" + greetings() +"_\n" + full_date + "\nThe temperature in London is *" + tempis[0] + "°C* right now! My reports are telling me that it is `" + tempis[3] + "` now.\nToday's high is *" + tempis[1] + "°C* and the low is *" + tempis[2] + "°C*.")
     )
 

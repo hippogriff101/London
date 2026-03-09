@@ -40,6 +40,11 @@ def weather_command(ack, respond):
         ]
     )
 
+@app.command("/weather-credits")
+def credits_command(ack, respond):
+    print("Credits command invoked!")
+    ack()
+    respond("<U078VN0UU2K> made this super cool bot. This project uses `python-weather`! This bot is being submitted to flavorotwn!")
 if __name__ == "__main__":
     SocketModeHandler(
         app,
